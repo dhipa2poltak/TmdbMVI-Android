@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/genreFragment">
+
+  <fragment
+      android:id="@+id/genreFragment"
+      android:name="com.dpfht.tmdbmvi.feature.genre.GenreFragment"
+      android:label="@string/app_name"
+      tools:layout="@layout/fragment_genre">
+    <action
+        android:id="@+id/action_genre_fragment_to_movies_by_genre_fragment"
+        app:destination="@+id/moviesByGenreFragment" />
+    <action
+        android:id="@+id/action_genre_fragment_to_error_dialog"
+        app:destination="@+id/errorMessageDialogFragment"/>
+  </fragment>
+
+  <fragment
+      android:id="@+id/moviesByGenreFragment"
+      android:name="com.dpfht.tmdbmvi.feature.moviesbygenre.MoviesByGenreFragment"
+      android:label="@string/app_name"
+      tools:layout="@layout/fragment_movies_by_genre">
+    <argument
+        android:name="genreId"
+        android:defaultValue="0"
+        app:argType="integer" />
+    <argument
+        android:name="genreName"
+        android:defaultValue="genre"
+        app:argType="string" />
+    <action
+        android:id="@+id/action_movie_by_genre_to_movie_details"
+        app:destination="@+id/movieDetailsFragment" />
+    <action
+        android:id="@+id/action_movie_by_genre_to_error_dialog"
+        app:destination="@+id/errorMessageDialogFragment"/>
+  </fragment>
+
+  <fragment
+      android:id="@+id/movieDetailsFragment"
+      android:name="com.dpfht.tmdbmvi.feature.moviedetails.MovieDetailsFragment"
+      android:label="@string/app_name"
+      tools:layout="@layout/fragment_movie_details">
+    <argument
+        android:name="movieId"
+        android:defaultValue="-1"
+        app:argType="integer" />
+    <action
+        android:id="@+id/action_movie_details_to_movie_reviews"
+        app:destination="@+id/movieReviewsFragment"  />
+    <action
+        android:id="@+id/action_movie_details_to_error_dialog"
+        app:destination="@+id/errorMessageDialogFragment"/>
+  </fragment>
+
+  <fragment
+      android:id="@+id/movieReviewsFragment"
+      android:name="com.dpfht.tmdbmvi.feature.moviereviews.MovieReviewsFragment"
+      android:label="@string/app_name"
+      tools:layout="@layout/fragment_movie_reviews">
+    <argument
+        android:name="movieId"
+        android:defaultValue="-1"
+        app:argType="integer" />
+    <argument
+        android:name="movieTitle"
+        android:defaultValue="title"
+        app:argType="string"  />
+    <action
+        android:id="@+id/action_movie_reviews_to_error_dialog"
+        app:destination="@+id/errorMessageDialogFragment"/>
+  </fragment>
+
+  <dialog
+      android:id="@+id/errorMessageDialogFragment"
+      android:name="com.dpfht.tmdbmvi.feature.ErrorMessageDialogFragment"
+      android:label="fragment_error_message_dialog"
+      tools:layout="@layout/fragment_error_message_dialog">
+    <argument
+        android:name="message"
+        android:defaultValue="no message"
+        app:argType="string"  />
+  </dialog>
+
+</navigation>

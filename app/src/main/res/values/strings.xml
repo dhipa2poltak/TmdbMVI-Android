@@ -1,0 +1,15 @@
+<resources>
+  <string name="app_name">TMDB MVI</string>
+
+  <string name="title_movie_genres">Movie Genres</string>
+  <string name="text_show_review">Show Review</string>
+  <string name="text_show_trailer">Show Trailer</string>
+  <string name="content_desc_movie">Image for Movie</string>
+  <string name="text_review">Review</string>
+  <string name="content_desc_author">Image for review author</string>
+  <string name="msg_loading_file">loading…</string>
+  <string name="title_error">Error</string>
+  <string name="text_ok">OK</string>
+  <string name="canceled_message">api request is canceled</string>
+  <string name="title_message">Message</string>
+</resources>
